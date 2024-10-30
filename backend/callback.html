@@ -1,0 +1,30 @@
+<!-- moodify/backend/callback.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Auth Callback</title>
+    <script>
+        // Parse the access token from the URL
+        window.onload = () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const token = new URLSearchParams(hash.substring(1)).get('access_token');
+                if (token) {
+                    // Display the token or pass it to your app
+                    alert(`Access Token: ${token}`);
+                    // You can also send the token to your frontend via another API call or save it locally
+                } else {
+                    alert('No access token found.');
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Spotify Authentication Successful</h1>
+    <p>Please check the alert for your access token.</p>
+</body>
+</html>
